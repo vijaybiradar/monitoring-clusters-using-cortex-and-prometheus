@@ -125,6 +125,21 @@ prometheus:
 install kube-prometheus-stack using Helm:
 
 ```
-helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -f kube-prometheus-stack-values.yaml
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -f kube-prometheus-stack-values.yaml -n monitoring
 ```
 This setup will deploy Cortex with S3 storage backend and kube-prometheus-stack configured to send metrics to Cortex. Adjust configurations as per your specific environment and requirements.
+
+
+Access Grafana Dashboard
+
+Port Forward Grafana Service
+
+kubectl port-forward svc/prom-grafana 3000:80 -n monitoring
+Access Grafana Dashboard Open a web browser and go to localhost:3000.
+
+image
+
+Login with the following credentials: Username: admin Password: (retrieve password using the following command)
+
+kubectl get secret prom-grafana -o jsonpath="{.data.admin-password}" -n monitoring | base64 --decode ; echo
+Username: admin Password: prom-operator
