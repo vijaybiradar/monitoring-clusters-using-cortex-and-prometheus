@@ -135,9 +135,11 @@ Access Grafana Dashboard
 Port Forward Grafana Service
 
 kubectl port-forward svc/prom-grafana 3000:80 -n monitoring
+
 Access Grafana Dashboard Open a web browser and go to localhost:3000.
 
-image
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/5695ea51-ca03-4cbd-be42-ed6d5bb265da)
+
 
 Login with the following credentials: Username: admin Password: (retrieve password using the following command)
 
