@@ -47,6 +47,60 @@ config:
       region: us-east-1
       access_key_id: "your-access-key-id"
       secret_access_key: "your-secret-access-key"
+alertmanager:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+distributor:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+ingester:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+ruler:
+  serviceMonitor:
+    enabled: false
+    additionalLabels:
+      release: kube-prometheus-stack
+
+querier:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+query_frontend:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+nginx:
+  service:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+store_gateway:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
+
+compactor:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
 ```
 
 Replace "your-access-key-id" and "your-secret-access-key" with your actual AWS access key ID and secret access key.
