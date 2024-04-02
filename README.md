@@ -1,5 +1,4 @@
-# monitoring-clusters-using-cortex-and-prometheus
-
+# monitoring-clusters-using-cortex-prometheus-and-grafana
 Add Helm repositories:
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
