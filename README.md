@@ -49,7 +49,7 @@ config:
       secret_access_key: "your-secret-access-key"
 alertmanager:
   serviceMonitor:
-    enabled: true
+    enabled: false
     additionalLabels:
       release: kube-prometheus-stack
 
