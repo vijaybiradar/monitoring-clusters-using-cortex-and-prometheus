@@ -116,6 +116,8 @@ helm install cortex cortex-helm/cortex -f cortex-values.yaml --namespace cortex
 ```
 
 ![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/09675b4b-3778-4dd2-96ee-c30152e4d171)
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/958f4f7b-871e-41e8-8ca3-0150b94c4b62)
+
 
 Install kube-prometheus-stack:
 Create a values file (let's name it kube-prometheus-stack-values.yaml) for kube-prometheus-stack:
