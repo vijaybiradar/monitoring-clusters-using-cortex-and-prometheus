@@ -6,6 +6,9 @@ helm repo add cortex-helm https://cortexproject.github.io/cortex-helm-chart
 helm repo update
 ```
 
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/84e90436-65cd-46b4-a82d-84d775bb8463)
+
+
 Install Cortex:
 
 Create a values file (let's name it cortex-values.yaml) with the Cortex configuration you provided earlier. Here's an example of how it might look:
@@ -84,6 +87,8 @@ query_frontend:
 
 nginx:
   service:
+    label:
+      app: cortex
   serviceMonitor:
     enabled: true
     additionalLabels:
@@ -109,6 +114,9 @@ install Cortex using Helm:
 ```
 helm install cortex cortex-helm/cortex -f cortex-values.yaml --namespace cortex
 ```
+
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/09675b4b-3778-4dd2-96ee-c30152e4d171)
+
 Install kube-prometheus-stack:
 Create a values file (let's name it kube-prometheus-stack-values.yaml) for kube-prometheus-stack:
 
@@ -124,8 +132,13 @@ prometheus:
 install kube-prometheus-stack using Helm:
 
 ```
-helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -f kube-prometheus-stack-values.yaml --namespace monitoring
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -f kube-prometheus-stack-values.yaml --namespace monitoring --create-namespace
 ```
+
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/f1ac307a-1980-48fd-ac66-294fe867e5b1)
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/db4ed469-34ad-4995-97ab-921cb37dec3a)
+
+
 This setup will deploy Cortex with S3 storage backend and kube-prometheus-stack configured to send metrics to Cortex. Adjust configurations as per your specific environment and requirements.
 
 
@@ -133,8 +146,10 @@ Access Grafana Dashboard
 
 Port Forward Grafana Service
 ```
-kubectl port-forward svc/prom-grafana 3000:80 -n monitoring
+ kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring
 ```
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/801a3b85-0378-45ff-9d39-22f0675d6542)
+
 
 Access Grafana Dashboard Open a web browser and go to localhost:3000.
 
