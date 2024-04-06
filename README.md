@@ -113,7 +113,7 @@ Replace "your-access-key-id" and "your-secret-access-key" with your actual AWS a
 install Cortex using Helm:
 
 ```
-helm install cortex cortex-helm/cortex -f cortex-values.yaml --namespace cortex --create-namespace
+helm upgrade cortex cortex-helm/cortex -f cortex-values.yaml --namespace cortex --create-namespace --install
 ```
 
 ![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/09675b4b-3778-4dd2-96ee-c30152e4d171)
