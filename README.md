@@ -164,3 +164,11 @@ Login with the following credentials: Username: admin Password: (retrieve passwo
 kubectl get secret prom-grafana -o jsonpath="{.data.admin-password}" -n monitoring | base64 --decode ; echo
 ```
 Username: admin Password: prom-operator
+
+**Add cortex datasource in grafana **
+Add cortex datasource with remote read URL http://cortex-nginx.cortex.svc:80/prometheus in grafana 
+
+Add cortex dashboard in grafana 
+https://grafana.com/grafana/dashboards/9820-cortex-performance/
+![image](https://github.com/vijaybiradar/monitoring-clusters-using-cortex-and-prometheus/assets/38376802/c836581f-11c9-440a-a514-9b3e568b00e4)
+
